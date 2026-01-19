@@ -32,7 +32,7 @@ class Book implements JsonSerializable {
                         $this->pages = (int) $value;
                         break;
                     case 'publication_date':
-                        $this->publicationDate = new DateTime($value);
+                        $this->publicationDate = new DateTime((string) $value);
                         break;
                     case 'price':
                         $this->price = (float) $value;
@@ -98,7 +98,7 @@ class Book implements JsonSerializable {
             'title' => $this->title,
             'author' => $this->author,
             'pages' => $this->pages,
-            'publication_date' => $this->publicationDate,
+            'publication_date' => $this->publicationDate->format('d-m-Y'),
             'price' => $this->price
             ];
     }
